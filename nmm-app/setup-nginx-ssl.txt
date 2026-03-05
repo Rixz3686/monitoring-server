@@ -1,0 +1,19 @@
+# PANDUAN NGINX & SSL
+Untuk melakukan deployment di server:
+1. File default Nginx JANGAN dihapus, kita pakai cara lain agar lebih aman.
+2. Buat file conf baru di /etc/nginx/conf.d/nmm.conf
+3. Ubah portnya saja ke 443 dan pasang sertifikat SSL.
+
+Contoh nmm.conf:
+server {
+    listen 443 ssl;
+    server_name nmm.domain.com;
+
+    ssl_certificate /path/to/fullchain.pem;
+    ssl_certificate_key /path/to/privkey.pem;
+
+    location / {
+        proxy_pass http://localhost:3002;
+        proxy_set_header Host $host;
+    }
+}

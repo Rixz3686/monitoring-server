@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  nmm-app:
+    build: .
+    container_name: lgn-network-monitor
+    restart: unless-stopped
+    ports: ["3002:3002"]
+    environment:
+      - JWT_SECRET=RAHASIA_SUPER_AMAN
+    volumes:
+      - ./backend/monitoring.sqlite:/app/backend/monitoring.sqlite
