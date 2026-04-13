@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Supermercado+One&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --pink:        #e91e63;
+  --pink-light:  #fce4ec;
+  --pink-mid:    #f48fb1;
+  --pink-dark:   #c2185b;
+  --pink-glow:   rgba(233,30,99,0.15);
+  --bg-base:     #f4f5f9;
+  --bg-surface:  #ffffff;
+  --bg-card:     #ffffff;
+  --border:      #e8eaf0;
+  --border-pink: rgba(233,30,99,0.2);
+  --text-heading:#111827;
+  --text-body:   #374151;
+  --text-muted:  #9ca3af;
+  --sidebar-bg:  #ffffff;
+  --sidebar-w:   240px;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Supermercado One', cursive;
+  background-color: var(--bg-base);
+  color: var(--text-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(233,30,99,0.25);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(233,30,99,0.5); }
+
+a { color: var(--pink); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--pink-dark); }
+
+/* Heading base */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Supermercado One', cursive;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulseDot {
+  0%,100% { opacity: 1; }
+  50%      { opacity: 0.45; }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.anim-fade-up   { animation: fadeInUp 0.45s ease both; }
+.anim-slide-in  { animation: slideInLeft 0.35s ease both; }
+
+input, button, select, textarea {
+  font-family: 'Supermercado One', cursive;
+  letter-spacing: 0.02em;
+}
+
+input::placeholder { color: var(--text-muted) !important; opacity: 1; }
